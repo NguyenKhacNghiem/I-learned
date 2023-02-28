@@ -1,0 +1,340 @@
+@import url("https://algs4.cs.princeton.edu/css/link-icons.css");
+
+body { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; }
+p    { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; margin-top: 10px; margin-bottom: 0px; }
+b    { font-weight: 700; }
+
+p.footer { font-size: 12px; font-style; italic; }
+a.footer { font-size: 12px; }
+
+li {  font-size: 15px; margin-top: 6px;}
+
+hr   { height:1px; color:#444444; }
+
+code, tt {
+    color: #222222;
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    /* font-family: "courier new", courier, mono; */
+    font-size: 13px;
+}
+
+
+code.outline {
+    color: #333333;
+    border-radius: 3px;
+    overflow: auto;
+    padding: 1px 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #C9E1F6;
+    background-color:#E8F2FB;
+    font-size: 12px;
+}
+
+a code.outline {
+    color: #333333;
+    border-radius: 3px;
+    overflow: auto;
+    padding: 1px 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #C9E1F6;
+    background-color:#E8F2FB;
+    font-size: 12px;
+}
+
+
+blockquote { margin-left: 40px; margin-right: 0px; }
+
+/* gray comments, blue prompt, yellow commands */
+pre .comment { color:#999999; }
+pre .prompt  { color:#5394EC; }
+pre .command { color:#FFFF99; }
+
+pre.terminal {
+    overflow: auto;
+    width: 500px;  /* fixed width, useful for LIFT-CS installers */
+    line-height: 1.5;
+    font-family: Inconsolata, Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    /* font-family: "courier new", courier, mono; */
+    font-size: 14px;
+    color:#EEEEEE;
+    background-color:#000000;
+    padding: 15px 15px 15px 15px;
+    border-radius: 3px;
+    border-color: #ebebeb;
+    border-style: solid;
+    border-width: 1px;
+    margin-left: 0px;
+    margin-right: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+ }
+
+blockquote pre {
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    font-size: 13px;
+    background-color:#ebebeb;
+    padding: 10px 15px 10px 15px;
+    border-radius: 5px;
+    border-color: #dbdbdb;
+    border-style: solid;
+    border-width: 1px;
+}
+blockquote pre.small { font-family: "courier new", courier, mono; font-size: 11px; background-color:#ebebeb;}
+blockquote pre.tiny { font-family: "courier new", courier, mono; font-size: 10px; background-color:#ebebeb;}
+pre { margin-left: 0px; font-family: "courier new", courier, mono; font-size: 13px; background-color:#ebebeb; padding: 10px 10px 10px 15px; }
+
+em { font-style: italic; }
+
+b { font-weight: bold; }
+
+/* th { font-family: verdana, arial, helvetica, sans-serif; font-weight: bold; font-size: 12px; background-color: #666666; color:#ffffff; } */
+/* td { font-family: verdana, arial, helvetica, sans-serif; font-size: 12px; margin-top: 20px;} */
+
+th { font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif; line-height: 1.5; font-weight: bold;  background-color: #666666; color:#ffffff; }
+td { font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; margin-top: 20px;}
+th a { font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif; line-height: 1.5; font-weight: bold;  background-color: #666666; color:#ffffff; }
+td a { font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; line-height: 1.5; margin-top: 20px;}
+
+td tt { font-family: "courier new", courier, mono; font-size: 13px; }
+
+h1 { font-size: 22px; font-weight:normal; font-variant:small-caps; 
+/*     background-color:#a90021; */
+/*     background-color:#96231F; */
+     background-color:#C52030; 
+     color:#FFFFFF; text-align: left; padding-right:15px; padding-left:20px;
+     padding-top:6px;padding-bottom:6px;}
+h1.center {text-align:center; }
+
+h2 { font-size: 15px; display: inline; text-align: left; font-weight: bold; }
+h3 { font-size: 15px; display: inline; font-weight: bold; }
+h4 { font-size: 22px; font-weight: bold; color:#7c927b; }     /* shade of green */
+h4 a { font-size: 22px; font-weight: bold; color:#7c927b; }   /* for a name tages 00cc66 */
+
+ol li        { list-style: decimal;     }
+ol ol li     { list-style: lower-alpha; }
+ol ol ol li  { list-style: lower-roman; }
+
+ol li.qa { list-style: upper-alpha; }
+
+ul li          { list-style: disc;    }
+ul ul li       { list-style: circle;  }
+ul ul ul li    { list-style: square;  }
+ul ul ul ul li { list-style: disc;    }
+
+a { font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    text-decoration: none; }
+
+/* a         { font-family: verdana, arial, helvetica, sans-serif; text-decoration: none; } */
+a:active  { color: green; }
+a:hover   { color: red; text-decoration: underline;  }
+
+
+/* size of blurb in algs4/home */
+p.blurb { font-size: 16px; font-style: italic; font-weight: 350; line-height: 140%; }
+
+
+/* input forms for google search bar */
+/* input, textarea { font-family: "courier new", courier, mono; color: blue; font-size: 13px; font-weight: bold; } */
+/* input.search { font-family: Verdana, arial, helvetica, sans-serif; font-weight: normal; font-size: 12px; } */
+
+.gsc-search-button,.gsc-clear-button {
+    display: none;
+}
+.gsc-search-box .gsc-input {
+    margin-left: 15px;
+    width: 145px;
+}
+
+#content  { margin-left: 202px;
+            padding-right: 1.5cm; padding-left: 1cm;
+            padding-top: 0cm; padding-bottom: 0cm; }
+
+
+/* http://www.tanfa.co.uk/css/examples/menu/tutorial-v.asp */
+
+
+/***************************************************/
+#menu a.picture { color: #fff; background: #000;  text-decoration: none; font-size: 12px;
+                 border-width: 0px; padding: 0px 0px;}
+
+
+
+/*                 border-width: 0px; padding: 0px 0px;} */
+
+#menu {
+float: left;
+/* width: 188px; */
+width: 189px;
+/* background: #eee; */
+background: #000;
+}
+
+#menu ul {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+/* added this to override bullets */
+#menu ul li          { list-style: none; }
+#menu ul ul li       { list-style: none; }
+#menu ul ul ul li    { list-style: none; }
+#menu ul ul ul ul li { list-style: none; }
+
+/* added this to override 6px top margin */
+#menu li { margin: 0px;}
+
+#menu a, #menu h2 {
+/* changed from 12px/16px for thicker menu items */
+font: bold 12px/18px arial, helvetica, sans-serif;
+display: block;
+border-width: 1px;
+border-style: solid;
+border-color: #ccc #888 #555 #bbb;
+margin: 0;
+padding: 2px 10px;  /* changed from 2px 3px */
+}
+
+#menu a.book  {
+line-height: 180%;
+}
+
+#menu a.booksite  {
+line-height: 180%;
+padding: 4px 0px;
+}
+
+#menu h2 {
+border-width: 0px;   /* added this - otherwise default is 1 from above */
+color: #fff;
+background: #000;
+}
+
+
+#menu a {
+color: #000;
+/* background: #efefef; */
+background: #cccccc;
+text-decoration: none;
+}
+
+/* white on black headings */
+#menu a.title { color: #fff; background: #000; font-variant:small-caps; font-size: 105%; }
+
+#menu a:hover {
+color: #fff;
+/* background: #266; */  /* a shade of green */
+background: #AA3E3B;     /* a shade of red */
+}
+
+
+#menu ul ul ul {
+position: absolute;
+top: 0;
+left: 0;
+}
+
+
+#menu li {position: relative;}
+
+#menu ul ul ul {
+position: absolute;
+top: 0;
+left: 100%;
+width: 100%;
+}
+
+div#menu ul ul ul 
+{display: none;}
+
+div#menu ul ul li:hover ul 
+{display: block;}
+
+div#menu ul ul ul,
+div#menu ul ul li:hover ul ul
+{display: none;}
+
+div#menu ul ul li:hover ul 
+{display: block;}
+
+div#menu ul ul ul,
+div#menu ul ul li:hover ul ul
+{display: none;}
+
+/* needed for third level */
+div#menu ul ul li:hover ul,
+div#menu ul ul ul li:hover ul
+{display: block;}
+
+/*Info Boxs */ 
+.infobox-restrict, .infobox-warning, .infobox-note, .infobox-tip, .infobox-important {
+	margin: 10px 150px 10px 0px;
+	padding: 15px 25px 15px 35px;
+}
+
+p.notep1 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.notep1 {
+	font-weight: bold;
+	font-size: 18px;
+}
+/*Info Box Restriction RED*/
+.infobox-restrict {
+	border-left: 3px solid #D34349;
+	background: #FEF5F6 url("../images/icon-restrict-16.png") no-repeat 7px 20px;
+}
+.infobox-restrict .notep1 {
+	color: #992727;
+	font-size: 18px;
+}
+/*Info Box Warning Yellow*/
+.infobox-warning {
+	border-left: 3px solid #D6A042;
+	background: #FEFBF3 url("../images/icon-warning-16.png") no-repeat 7px 20px;
+}
+.infobox-warning .notep1 {
+	color: #7d5a09;
+}
+/*Info Box Note BLUE*/
+.infobox-note {
+	border-left: 3px solid #1C59AA;
+	background: #EFF6FE url("../images/icon-note-16.png") no-repeat 7px 20px;
+}
+.infobox-note .notep1 {
+	color: #1D5AAB;
+}
+/*Info Box Tip GREEN*/
+.infobox-tip {
+	border-left: 3px solid #218041;
+	background: #EFFFF4 url("../images/icon-tip-16.png") no-repeat 7px 20px;
+}
+.infobox-tip .notep1 {
+	color: #1d7e46;
+}
+/*Info Box Important PURPLE*/
+.infobox-important {
+	border-left: 3px solid #7c2482;
+	background: #fdf5ff url("../images/icon-important-16.png") no-repeat 7px 20px;
+}
+.infobox-important .notep1 {
+	color: #6b2e92;
+}
+
+
+/* fifteen puzzle */
+.fifteenTable {background: #FF8040; border: 1px solid #DF6020; text-align: center; width: 7.5em}
+   .fifteenTable TR {height: 30px;}
+   .fifteenTable TD {width: 25%; text-align: center}
+   .fifteenTable A {text-decoration: none; font-weight:bold; color: black; font-size: larger}
+   .fifteenTable A:hover {text-decoration: none; font-weight:bold; color: white}
+   .PuzzleTable {background: #FF8040; border: 1px solid #DF6020; text-align: center; }
+   .MarkedSquare {background: green; font-weight: bold; color: white}
+
