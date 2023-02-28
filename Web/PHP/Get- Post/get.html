@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Exampke</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+
+        <form action="getServer.php" method="GET" style="max-width: 400px;margin: auto;">
+            <h2 class="mt-5"><span style="color: red;">GET</span> Method Example</h2>
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input name="name" id="name" type="text" class="form-control" placeholder="Enter name">
+            </div>
+
+            <div class="form-group">
+                <label for="list">What kind of list do you want to see:</label>
+                <select name="list" id="list" class="form-control">
+                    <option value="Courses">Courses</option>
+                    <option value="Animals">Animals</option>
+                    <option value="Countries">Countries</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+    </div>
+</body>
+</html>

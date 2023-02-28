@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <style>
+        .item {
+            float: left;
+        }
+    </style>
+
+    <script>
+        $(document).ready(() => {
+            function changeLayout()
+            {
+                if($(document).width() >= 1200)      // ko co chu "px"
+                    $(".item").css('width', '20%')
+                else if($(document).width() >= 800) 
+                    $(".item").css('width', '25%')
+                else if($(document).width() >= 600) 
+                    $(".item").css('width', '33.33%')
+                else
+                    $(".item").css('width', '100%')   
+            }
+
+            $(window).resize(changeLayout)
+        })
+    </script>
+</head>
+<body>
+   <div style="background-color: red;" class="item"><br><br><br><br></div>
+   <div style="background-color: green;" class="item"><br><br><br><br></div>
+   <div style="background-color: blue;" class="item"><br><br><br><br></div>
+   <div style="background-color: violet;" class="item"><br><br><br><br></div>
+   <div style="background-color: yellow;" class="item"><br><br><br><br></div>
+</body>
+</html>

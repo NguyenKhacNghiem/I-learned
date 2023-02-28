@@ -1,0 +1,69 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    height: 120px;
+    text-align: center;
+    background-color: #282a35;
+    color: white;
+    font-size: 36px;
+    line-height: 120px;
+}
+
+footer {
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    background-color: #282a35;
+    color: white;
+    font-size: 36px;
+    clear: both;
+}
+
+main div {
+    height: 350px;
+    width: 33.33%;
+    border: 2px solid black;
+    padding: 16px;
+    font-size: 30px;
+    background-color: yellow;
+}
+
+[class^="col-"] {
+    float: left;
+    width: 100%;  /* version mobile */
+}
+
+/* Từ 700px trở lên thì đoạn code này sẽ chạy */
+/* version tablet */
+@media screen and (min-width: 700px) {
+    .col-tablet-1 {width: 8.33%;}
+    .col-tablet-2 {width: 16.66%;}
+    .col-tablet-3 {width: 25%;}
+    .col-tablet-4 {width: 33.33%;}
+    .col-tablet-5 {width: 41.66%;}
+    .col-tablet-6 {width: 50%;}
+    .col-tablet-7 {width: 58.33%;}
+    .col-tablet-8 {width: 66.66%;}
+    .col-tablet-9 {width: 75%;}
+    .col-tablet-10 {width: 83.33%;}
+    .col-tablet-11 {width: 91.66%;}
+    .col-tablet-12 {width: 100%;}
+}
+
+/* version pc */
+@media screen and (min-width: 1000px) {
+    .col-pc-1 {width: 8.33%;}
+    .col-pc-2 {width: 16.66%;}
+    .col-pc-3 {width: 25%;}
+    .col-pc-4 {width: 33.33%;}
+    .col-pc-5 {width: 41.66%;}
+    .col-pc-6 {width: 50%;}
+    .col-pc-7 {width: 58.33%;}
+    .col-pc-8 {width: 66.66%;}
+    .col-pc-9 {width: 75%;}
+    .col-pc-10 {width: 83.33%;}
+    .col-pc-11 {width: 91.66%;}
+    .col-pc-12 {width: 100%;}
+}

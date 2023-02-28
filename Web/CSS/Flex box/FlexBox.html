@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flex</title>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            /* reset CSS */
+            padding: 0; 
+            margin: 0;
+        }
+
+        .container {
+            width: 100vw;
+            height: 800px;
+            border: 5px solid red;
+            display: flex;
+            /* flex-direction: row;
+            flex-wrap: wrap; */
+            flex-flow: row wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .box {
+            height: 200px;
+            padding: 10px;
+            /* flex-basis: 200px; */
+            flex-grow: 1;
+        }
+
+        .box-1 {
+            background-color: orange;
+            order: 1;
+        }
+
+        .box-2 {
+            background-color: green;
+            order: 2
+        }
+
+        .box-3 {
+            background-color: blue;
+        }
+
+        .box p {
+            font-size: 20px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box box-1">
+            <p>Box 1</p>
+            <p>Flex Item</p>
+        </div>
+        <div class="box box-2">
+            <p>Box 2</p>
+            <p>Flex Item</p>
+        </div>
+        <div class="box box-3">
+            <p>Box 3</p>
+            <p>Flex Item</p>
+        </div>
+    </div>
+</body>
+
+</html>

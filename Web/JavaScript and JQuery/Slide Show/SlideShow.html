@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Table</title>
+</head>
+
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        select {
+            float: left;
+        }
+
+        img {
+            float: left;
+        }
+    </style>
+
+    <select id="imageList" name="imageList" size="10" onchange="changeImage()">
+        <option>pic_001.jpg</option>
+        <option>pic_002.jpg</option>
+        <option>pic_003.jpg</option>
+        <option>pic_004.jpg</option>
+        <option>pic_005.jpg</option>
+        <option>pic_006.jpg</option>
+        <option>pic_007.jpg</option>
+        <option>pic_008.jpg</option>
+        <option>pic_009.jpg</option>
+        <option>pic_010.jpg</option>
+    </select>
+
+    <img src="images/pic_001.jpg">
+
+    <button onclick="back()" type="button">Back</button>
+    <button onclick="slideShow()" type="button">Start slideshow</button>
+    <button onclick="next()" type="button">Next</button>
+
+    <p>pic_001.jpg (10/55)</p>
+
+    <script src="script.js"></script>
+</body>
+</html>

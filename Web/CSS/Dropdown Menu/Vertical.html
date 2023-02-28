@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Menu</title>
+
+    <style>
+        .button {
+            background-color: rgb(11, 199, 11);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .links {
+            position: absolute;
+            min-width: 160px;
+            display: none;
+        }   
+
+        .links a{
+            text-decoration: none;
+            display: block;
+            color: white;
+            background-color:gray;
+            padding: 4px;
+        }
+
+        .dropdown:hover .button{  /* hover lên dropdown thì button bị ảnh hưởng */
+            background-color: green;
+            transition: 1s;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 1);
+        }
+
+        .dropdown:hover .links{  /* hover lên dropdown thì links bị ảnh hưởng */
+            background-color: rgb(58, 55, 55);
+            transition: 1s;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 1.5);
+            display: block;
+        }
+
+        .links a:hover {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dropdown">
+        <button class="button">Dropdown</button>
+        <div class="links">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+    </div>
+</body>
+
+</html>

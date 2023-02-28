@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        /* Dung media query nen set tu man hinh nho den lon (mobile first) */
+        @media screen and (max-width: 400px) /* <= 400px */
+        {
+            .item {
+                float: left;
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-width: 600px) /* >= 600px */
+        {
+            .item {
+                float: left;
+                width: 33.33%;
+            }
+        }
+
+        @media screen and (min-width: 800px) /* >= 800px */
+        {
+            .item {
+                float: left;
+                width: 25%;
+            }
+        }
+
+        @media screen and (min-width: 1200px) /* >= 1200px */
+        {
+            .item {
+                float: left;
+                width: 20%;
+            }
+        }
+    </style>
+</head>
+<body>
+   <div style="background-color: red;" class="item"><br><br><br><br></div>
+   <div style="background-color: green;" class="item"><br><br><br><br></div>
+   <div style="background-color: blue;" class="item"><br><br><br><br></div>
+   <div style="background-color: violet;" class="item"><br><br><br><br></div>
+   <div style="background-color: yellow;" class="item"><br><br><br><br></div>
+</body>
+</html>
