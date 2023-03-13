@@ -37,7 +37,7 @@ public class StudentController
 				
 		model.addAttribute("students", students); // dua du lieu tu Controller qua View
 		
-		return "studentView";
+		return "studentView"; // tra ve View co ten "studentView" (show View nay len browser)
 	}
 	
 	@RequestMapping(value = { "/", "/index" }, method = RequestMethod.POST)
