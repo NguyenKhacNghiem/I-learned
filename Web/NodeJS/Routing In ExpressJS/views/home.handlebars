@@ -1,0 +1,9 @@
+<h1>View for Home Page</h1>
+
+{{!-- Nếu biến "table" được gửi từ BE qua thì ta chạy lệnh bên dưới --}}
+{{#if table}}
+<p>Table</p>
+<table border="1">{{{table}}}</table>
+{{else}}
+<p>Không có dữ liệu bảng</p>
+{{/if}}
