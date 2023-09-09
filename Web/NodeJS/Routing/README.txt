@@ -1,1 +1,0 @@
-dùng yarn install để tải lại các module mà project dùng
