@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h2>Danh sách sinh viên</h2>
+
+        <div class="row">
+            <div class="form-group col-6">
+                <label for="name">Họ và tên</label>
+                <input type="text" class="form-control" placeholder="Nhập họ tên" id="name">
+            </div>
+
+            <div class="form-group col-6">
+                <label for="age">Tuổi</label>
+                <input type="number" class="form-control" placeholder="Nhập tuổi" id="age">
+            </div>
+        </div>
+
+        <p>Chọn một trong hai button, sau đó dữ liệu sẽ được thêm vào một trong hai bảng tương ứng. Ngoài ra, dữ liệu cũng được lưu vào một trong hai loại storage tương ứng</p>
+
+        <button id="btn-local" class="btn btn-primary">Thêm Local Storage</button>
+        <button id="btn-session" class="btn btn-danger">Thêm Session Storage</button>
+
+        <div class="mt-5 row">
+            <div class="col-6">
+                <h5 class="text-primary">LocalStorage</h5>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên</th>
+                            <th>Tuổi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-local">
+                        
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-6">
+                <h5 class="text-danger">SessionStorage</h5>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên</th>
+                            <th>Tuổi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-session">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script>
+        let btnLocal = document.getElementById("btn-local");
+        let btnSession = document.getElementById("btn-session");
+        let name = document.getElementById("name");
+        let age = document.getElementById("age");
+
+        // hiển thị dữ liệu trong Local Storage khi trang load lần đầu
+        let localStudents = JSON.parse(window.localStorage.getItem("students")); // bên dưới chuyển array thành JSON thì bên này phải parse ngược lại
+        if(!localStudents)
+            localStudents = [];
+        showStudents(localStudents, "table-local")
+
+        // hiển thị dữ liệu trong Session Storage khi trang load lần đầu
+        let sessionStudents = JSON.parse(window.sessionStorage.getItem("students")) // bên dưới chuyển array thành JSON thì bên này phải parse ngược lại
+        if(!sessionStudents)
+            sessionStudents = [];
+        showStudents(sessionStudents, "table-session")
+
+        // Thêm student vào Local Storage
+        btnLocal.addEventListener("click", () => {
+            localStudents.push({"name": name.value, "age": age.value}) // thêm 1 element vào mảng
+            window.localStorage.setItem("students", JSON.stringify(localStudents)); // lưu mảng vào Local Storage (key-value) (phải chuyển data thành string)
+            showStudents(localStudents, "table-local")
+        })
+
+        // Thêm student vào Session Storage
+        btnSession.addEventListener("click", () => {
+            sessionStudents.push({"name": name.value, "age": age.value}) // thêm 1 element vào mảng
+            window.sessionStorage.setItem("students", JSON.stringify(sessionStudents)); // lưu mảng vào Session Storage (key-value) (phải chuyển data thành string)
+            showStudents(sessionStudents, "table-session")
+        })
+
+        function showStudents(students, table) {
+            let tbody = document.getElementById(table);
+            let rows = "";
+            
+            for(let i=0;i<students.length;i++)
+                rows += `
+                        <tr>
+                            <td>${i+1}</td>
+                            <td>${students[i].name}</td>
+                            <td>${students[i].age}</td>
+                        </tr>`
+            
+            tbody.innerHTML = rows;
+
+            // clear inputs
+            name.value = "";
+            age.value = ""
+        }
+    </script>
+</body>
+
+</html>
