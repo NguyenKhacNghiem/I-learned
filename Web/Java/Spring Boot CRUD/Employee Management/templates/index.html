@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- Thay thế block này bằng 1 block có fragment tên là "head" -->
+<head th:replace="layout :: head"></head>
+<body>
+	<!-- Thay thế block này bằng 1 block có fragment tên là "header" -->
+	<nav th:replace="layout :: header"></nav>
+
+	<div class="container">
+		<!-- block này chỉ được show nếu (if) có 1 attribute tên "success" được gửi từ HTTP Request lên -->
+		<div th:if="${success}" class="alert alert-success mt-3">
+			<span th:text="${success}"></span>
+		</div>
+
+		<div class="mt-3 mb-3">
+			<a th:href="@{/create}">
+				<button class="btn btn-success">Add new employee</button>
+			</a>
+		</div>
+
+		<form action="#" th:action="@{/search}" method="GET">
+			<div class="row">
+				<div class="form-group col-10">
+					<input type="text" class="form-control" name="key" placeholder="Type employee name..." />
+						
+				</div>
+				<div class="col-2">
+					<button type="submit" class="btn btn-primary">Search</button>
+				</div>
+			</div>
+		</form>
+		
+		<!-- block này chỉ được show nếu (if) attribute dưới dạng 1 List (employees) có 0 phần tử (empty) -->
+		<th:block th:if="${#lists.isEmpty(employees)}">
+			<h3>No employee</h3>
+		</th:block>
+		<!-- Nếu if trên không chạy thì cái này (giống if-else) -->
+		<th:block th:unless="${#lists.isEmpty(employees)}">
+			<div class="row">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Phone</th>
+							<th>Edit</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="employee : ${employees}">
+							<td th:text="${employee.id}"></td>
+							<td th:text="${employee.name}"></td>
+							<td th:text="${employee.phone}"></td>
+							<td>
+								<a th:href="@{/edit/{id}(id=${employee.id})}">
+									<button class="btn btn-warning">Edit</button>
+								</a>
+							</td>
+							<td>
+								<a th:href="@{/delete/{id}(id=${employee.id})}">
+									<button class="btn btn-danger">Delete</button>
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</th:block>
+	</div>
+</body>
+</html>
