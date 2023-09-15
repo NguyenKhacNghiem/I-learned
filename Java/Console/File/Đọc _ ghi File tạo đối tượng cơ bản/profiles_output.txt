@@ -1,2 +1,0 @@
-Nguyen Khac Nghiem:Nam:18:10.0:true
-Nguyen Duong Hai Yen:Nu:18:9.5:false
