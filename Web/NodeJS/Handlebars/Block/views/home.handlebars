@@ -1,0 +1,35 @@
+<h1>View for Home Page</h1>
+
+<ul>
+    {{#each tours}}
+        <li>
+            {{name}} - {{price}} {{!-- == {{this.name}} - {{this.price}}    --}}
+
+            {{!-- ../ tức là chuyển bối cảnh lùi ra. Nếu ghi currencies thì nó sẽ hiểu là this.currencies --}}
+            {{#if ../currencies}}
+                ({{../currency.abbrev}})
+            {{/if}}
+        </li>
+    {{/each}}
+</ul>
+
+{{!-- Unless của if trên --}}
+{{#unless currencies}}
+    <p>All prices in {{currency.name}}.</p>
+{{/unless}}
+
+{{#if specialsUrl}}
+    <p>Check out our <a href="{{specialsUrl}}">specials!</p>
+
+    {{else}}
+        <p>Please check back often for specials.</p>
+{{/if}}
+
+<p>
+    {{#each currencies}}
+        <a href="#" class="currency">{{.}}</a> {{!-- == {{this}}   --}}
+
+        {{else}}
+            Unfortunately, we currently only accept {{currency.name}}.  
+    {{/each}}
+</p>
