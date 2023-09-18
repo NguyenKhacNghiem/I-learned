@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="row mt-3">
+        {{!-- Hình ảnh --}}
+        <div class="col-6 text-center">
+            {{!-- Ảnh lớn --}}
+            <img class="w-50" src="/img/{{product.images.[0]}}">
+            
+            {{!-- Các ảnh nhỏ. Có bao nhiêu ảnh nhỏ trong mảng thì lấy bấy nhiêu --}}
+            <div class="row mt-3">
+                {{#each product.images}}
+                    <div class="col-4"><img class="w-100" src="/img/{{.}}"></div>
+                {{/each}}
+            </div>
+        </div>
+
+        {{!-- Thông tin --}}
+        <div class="col-6 mt-5">
+            <p>Name: {{product.name}}</p>
+            <p>Price: ${{product.price}}</p>
+
+            <button class="btn btn-outline-success">Buy now</button>
+            <button class="btn btn-outline-primary">Add cart</button>
+        </div>
+
+        {{!-- Mô tả --}}
+        <div class="col-8">
+            <p>{{product.desc}}</p>
+        </div>
+
+        {{!-- Các biến thể --}}
+        <div class="col-4">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each product.vars}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>${{price}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
