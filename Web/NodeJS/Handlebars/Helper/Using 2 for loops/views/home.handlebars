@@ -1,0 +1,9 @@
+<table border="1">
+    {{#for 1 3}}
+        <tr>
+            {{#for 1 5}}
+                <td>({{../index}}, {{index}})</td>
+            {{/for}}
+        </tr>
+    {{/for}}
+</table>

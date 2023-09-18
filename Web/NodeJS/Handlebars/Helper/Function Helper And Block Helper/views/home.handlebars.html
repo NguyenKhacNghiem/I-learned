@@ -1,0 +1,15 @@
+<h1>View for Home Page</h1>
+
+{{!-- Thực thi (gọi) function helper --}}
+<ul>
+    {{#each tours}}
+        <li>{{name}} - {{formatPrice price}}</li>
+    {{/each}}
+</ul>
+
+{{!-- Thực thi (gọi) block helper --}}
+<ul>
+    {{#showTours tours}}
+        <li>{{{name}}} - {{price}}</li>
+    {{/showTours}}
+</ul>
