@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="parentStyle">
+        <item name="android:textColor">#ff0000</item>
+        <item name="android:background">#978F8F</item>
+    </style>
+
+    <!-- Style này kế thừa style ở trên   -->
+    <style name="childStyle" parent="@style/parentStyle">
+        <item name="android:textColor">#45D509</item>
+        <item name="android:background">#978F8F</item>
+    </style>
+</resources>
