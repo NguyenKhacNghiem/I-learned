@@ -1,0 +1,50 @@
+<a href="/">Back</a> <br>
+<input type="file" id="imageInput" accept="image/*">
+<button id="uploadButton" onclick="upload()">Upload Image</button>
+
+<script>
+    function upload() {
+        // Lấy hình ảnh từ input file
+        let imageInput = document.getElementById('imageInput');
+        let selectedFile = imageInput.files[0]; // phòng khi người dùng thêm thuộc tính multiple ở DevTool
+
+        // Kiểm tra nếu không có hình ảnh nào được chọn
+        if (!selectedFile) {
+            alert("Vui lòng chọn hình ảnh để upload.");
+            return;
+        }
+
+        // Kiểm tra kích thước ảnh
+        if(selectedFile.size > 1048576) {
+            alert("Không chấp nhận hình ảnh lớn hơn 1MB.");
+            return;
+        }
+
+        // Đọc hình ảnh dưới dạng base64
+        let reader = new FileReader();
+        reader.readAsDataURL(selectedFile);
+
+        // Khi reader đã đọc xong dữ liệu
+        reader.onload = () => {
+            let base64 = reader.result;
+
+            // Gửi hình ảnh lên server sử dụng Fetch API
+            fetch('/upload-image', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ base64: base64 })
+            })
+            .then(response => response.json())
+            .then(json => handleResult(json))
+        };
+    }
+
+    function handleResult(json) {
+        if(json.error)
+            alert(json.error);
+        else
+            alert(json.success);
+    }
+</script>

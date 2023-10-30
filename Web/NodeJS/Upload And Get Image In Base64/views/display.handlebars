@@ -1,0 +1,40 @@
+<a href="/">Back</a> <br>
+
+<select id="listOfImage">
+    {{#each imageFiles}}
+        <option value="{{.}}">{{.}}</option>
+    {{/each}}
+</select>
+
+<button id="loadImageButton" onclick="loadImage()">Load Image</button>
+<br>
+<img id="imageDisplay" src="" alt="Image">
+
+<script>
+    let listOfImage = document.getElementById('listOfImage');
+    let imageDisplay = document.getElementById('imageDisplay');
+    let loadImageButton = document.getElementById('loadImageButton');
+    
+    function loadImage() {
+        // Lấy ra vị trí của thẻ option đang được select
+        let selectedIndex = listOfImage.selectedIndex;
+
+        if(selectedIndex === -1) {
+            alert("Vui lòng chọn hình ảnh để hiển thị");
+            return;
+        }
+
+        // Lấy ra thẻ option đang được select
+        let selectedOption = listOfImage.options[selectedIndex];
+
+        fetch(`/get-image/${selectedOption.value}`)
+        .then(response => response.json())
+        .then(json => {
+            // Đặt nguồn hình ảnh với dữ liệu base64 trả về
+            imageDisplay.src = `data:image/*;base64, ${json.image}`;
+        })
+        .catch(error => {
+            alert('Error:' + error);
+        });
+    }
+</script>
