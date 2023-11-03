@@ -1,4 +1,4 @@
-let exampleModule = require('./module'); // không có đuôi .js
+let exampleModule = require('./module'); // không có đuôi .js. Lúc này, exampleModule sẽ là module.exports
 let http = require('http');
 
 http.createServer(function (request, response) {
