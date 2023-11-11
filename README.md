@@ -1,2 +1,2 @@
-# Some practical exercises in programming
-> This repository is how I learn to code.
+# I-Learned
+This repository is where I learn to code.
