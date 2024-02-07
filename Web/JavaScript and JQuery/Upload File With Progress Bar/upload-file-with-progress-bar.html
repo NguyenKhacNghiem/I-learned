@@ -1,0 +1,94 @@
+<div class="border rounded mb-3 mt-5 p-3">
+    <h4>File upload</h4>
+
+    <!-- Bootstrap 4 input type file -->
+    <div class="form-group">
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="file" name="file">
+            <label class="custom-file-label" for="file">Choose file</label>
+        </div>
+    </div>
+
+    <!-- Bootstrap 4 progress bar -->
+    <div class="form-group">
+        <div class="progress" style="height:5px;display: none;" id="progress">
+            <div id="progress-bar" class="progress-bar bg-success" style="width:0%;height:10px"></div>
+        </div>
+    </div>
+
+    <!-- Note for uploading -->
+    <p class="small">Người dùng chỉ được upload tập tin có kích thước tối đa là 20 MB. Các tập tin thực thi (*.exe, *.msi, *.sh) không được phép upload.</p>
+    <p class="small">Khi nhấn nút upload thì</p>
+    <ul class="small">
+        <li>Progress bar sẽ hiển thị tiến độ của quá trình upload. Ban đầu progress bar bị ẩn đi.</li>
+        <li>Khi đang diễn ra quá trình upload thì button <strong>Upload</strong> sẽ bị disabled.</li>
+        <li>Sau khi upload thành công thì progress bar được ẩn đi, file sẽ được hiển thị trong danh sách bên trên và button được enabled trở lại.</li>
+    </ul>
+
+    <button class="btn btn-success px-5" onclick="upload()" id="btn-upload">Upload</button>
+</div>
+
+<script>
+    // Show name of file after select
+    $(".custom-file-input").on("change", function () {
+        let fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+
+    function upload() {
+        let fileInput = document.getElementById("file").files; // input type file
+        if(fileInput.length === 0)
+            return alert("Please select a file to upload");
+
+        let selectedFile = fileInput[0];
+
+        // Validate file size
+        let fileSize = selectedFile.size;
+        if(fileSize > 1024 * 1024 * 20) // > 20MB
+            return alert("The maximum uploaded file size is 20MB");
+
+        // Validate file extension
+        let fileName = $('.custom-file-input').val().split("\\").pop();
+        let dotIndex = fileName.lastIndexOf('.');
+        let fileExtension = fileName.substring(dotIndex + 1);
+        if(['exe', 'msi', 'sh'].indexOf(fileExtension) !== -1)
+            return alert("You are not allowed to upload this file");
+
+        // Before uploading, display progress bar and disable upload button
+        document.getElementById("progress").style.display = ""
+        document.getElementById("btn-upload").setAttribute("disabled", "")
+
+        // Put data to form
+        let form = new FormData();
+        form.set("file", selectedFile)
+
+        // Use xhr to upload
+        let xhr = new XMLHttpRequest();
+
+        xhr.open("POST", "/file/upload", true); // api end point on server
+
+        xhr.addEventListener("load", e => {
+            if(xhr.readyState === 4 && xhr.status === 200) {
+                // When upload finished, hide progress bar and enable upload button
+                document.getElementById("progress").style.display = "none"
+                document.getElementById("btn-upload").removeAttribute("disabled")
+
+                alert("Uploaded");
+                location.reload();
+            }
+            else
+                alert("Upload fail");
+        })
+        
+        // Calculate the progress and show it to the progress bar
+        xhr.upload.addEventListener("progress", e => {
+            let loaded = e.loaded;
+            let total = e.total;
+            let progress = Math.round(loaded * 100 / total);
+
+            document.getElementById("progress-bar").style.width = progress + "%"
+        })
+
+        xhr.send(form);
+    }
+</script>
