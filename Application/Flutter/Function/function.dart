@@ -13,6 +13,11 @@ void f3({required String name, required String gender}) {
   print("f3: Hello $name, your gender is $gender");
 }
 
+// khi không truyền kiểu dữ liệu thì nó sẽ lấy kiểu tự động (var)
+void f4(name, age) {
+  print("f4: Hello $name, your age is $age");
+}
+
 void main() {
   f1("Peter", "Male");
   f1("Peter", "Male", "admin");
@@ -24,4 +29,6 @@ void main() {
   // các tham số đặt trong dấu {} nên bắt buộc phải chỉ định tên khi truyền (không cần đúng thứ tự)
   f3(name: "Peter", gender: "Male"); 
   // f3(); // báo lỗi do có required
+
+  f4("Peter", 20);
 }
