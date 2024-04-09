@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File</title>
+</head>
+<body>
+    <input type="file" id="fileInput">
+    <input type="text" id="productIdInput" placeholder="Product ID">
+    <button id="uploadButton">Upload</button>
+
+    <script>
+        document.getElementById('uploadButton').addEventListener('click', async () => {
+            const fileInput = document.getElementById('fileInput');
+            const productIdInput = document.getElementById('productIdInput');
+
+            const file = fileInput.files[0];
+            const productId = productIdInput.value;
+
+            if (!file || !productId) {
+                alert('Please select a file and enter a product ID.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('productId', productId);
+
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    console.log('File uploaded successfully');
+                } else {
+                    console.error('Failed to upload file');
+                }
+            } catch (error) {
+                console.error('Error occurred:', error);
+            }
+        });
+    </script>
+</body>
+</html>
